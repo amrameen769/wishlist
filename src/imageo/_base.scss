@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+@import "variable";
+@import "mixins";
+@import "animate";
+
+* {
+  color: inherit;
+  margin: 0;
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  padding: $base-padding;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #efefef;
+}
+
+img {
+  max-width: 100%;
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.button-group {
+  display: block;
+}
+
+.palette {
+  display: block;
+
+  * {
+    margin-top: 6px;
+  }
+}
+
+.visually-hidden{
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

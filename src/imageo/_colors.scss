@@ -1,0 +1,25 @@
+@each $theme, $obj in $themes {
+  @each $attr, $color in $obj {
+    @if $attr == text {
+      .#{$theme}-#{$attr} {
+        color: $color;
+      }
+    } @else {
+      .#{$theme}-#{$attr} {
+        color: $color;
+      }
+      .bg-#{$theme}-#{$attr} {
+        background-color: $color;
+      }
+      @for $i from 1 through 9 {
+        .#{$theme}-#{$attr}-#{$i} {
+          color: mix(white, $color, $i * 10%);
+        }
+
+        .bg-#{$theme}-#{$attr}-#{$i} {
+          background-color: mix(white, $color, $i * 10%);
+        }
+      }
+    }
+  }
+}

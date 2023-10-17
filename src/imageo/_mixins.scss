@@ -1,0 +1,19 @@
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white) {
+  overflow: hidden;
+  position: relative;
+  line-height: $lineHeight;
+  max-height: $lineHeight * $lineCount;
+  text-align: start;
+  margin-right: -1em;
+  padding-right: 1em;
+}
+
+@mixin btnColor(
+  $bg-color: map-get(map-get($themes, "light"), "background"),
+  $color: map-get(map-get($themes, "light"), "primary"),
+  $border: map-get(map-get($themes, "light"), "accent")
+) {
+  border: $border;
+  color: $color;
+  background-color: $bg-color;
+}

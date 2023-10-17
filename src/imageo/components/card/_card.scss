@@ -1,0 +1,37 @@
+@use "sass:math";
+
+.card {
+  display: block;
+  padding: $base-padding;
+  border-top: 0.4rem solid $light-accent;
+  box-shadow: $base-box-shadow;
+  border-radius: math.div($base-border-radius, 3);
+  cursor: pointer;
+  transition: transform 300ms ease;
+
+  .card-title {
+    font-size: $font-size-lg;
+    padding-bottom: $base-padding;
+    font-weight: bold;
+  }
+
+  .card-body {
+    @include multiLineEllipsis(
+      $lineHeight: 1.2em,
+      $lineCount: 3,
+      $bgColor: white
+    );
+    margin-bottom: 1rem;
+  }
+
+  .card-footer {
+    margin-top: 0.8rem;
+    font-size: $base-font-size;
+    font-weight: 700;
+    color: $light-secondary;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
