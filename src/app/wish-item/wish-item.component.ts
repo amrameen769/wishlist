@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { WishItem } from 'src/shared/models/WishItem';
+import events from 'src/shared/services/EventService';
 
 @Component({
   selector: 'app-wish-item',
@@ -6,12 +8,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./wish-item.component.scss']
 })
 export class WishItemComponent {
-  @Input() wishText!: string
-  @Input() fulfilled!: boolean
-  @Output() fulfilledChange = new EventEmitter<boolean>()
+  @Input() wish!: WishItem;
+  get getClasses() {
+    return {
+      'strike text-fade': this.wish.fulfilled
+    }
+  }
 
   toggleItem() {
-    this.fulfilled = !this.fulfilled
-    this.fulfilledChange.emit(this.fulfilled)
+    this.wish.fulfilled = !this.wish.fulfilled
+  }
+
+  removeItem() {
+    events.emit('removeWish', this.wish)
   }
 }

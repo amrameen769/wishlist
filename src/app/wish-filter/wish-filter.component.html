@@ -1,7 +1,9 @@
 <div class="col-sm-2">
-      <select class="p-1" [(ngModel)]="listFilter" (ngModelChange)="updateFilter($event)">
-        <option value="0">All</option>
-        <option value="1">Unfulfilled</option>
-        <option value="2">Fulfilled</option>
-      </select>
+  <label class="selectLabel">
+    <select class="p-1" [(ngModel)]="listFilter" (ngModelChange)="updateFilter($event)">
+      <option value="0">All</option>
+      <option value="1">Unfulfilled</option>
+      <option value="2">Fulfilled</option>
+    </select>
+  </label>
     </div>

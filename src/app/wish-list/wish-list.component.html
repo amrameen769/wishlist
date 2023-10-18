@@ -6,12 +6,12 @@
       <span>No Items to Display.</span>
       </ng-template>-->
   <ng-template #showItems>
-    <div class="mt-4">
+    <div>
       <ul class="wish-list">
         <app-wish-item
+        class="gap-1"
         *ngFor="let wish of wishes"
-        [wishText]="wish.wishText"
-        [(fulfilled)]="wish.fulfilled"
+        [wish]="wish"
         ></app-wish-item>
       </ul>
     </div>

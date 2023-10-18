@@ -1,9 +1,12 @@
 <li>
-    <div class="form-check card">
-      <label class="form-check-label">
-        <input type="checkbox" name="checkbox" class="checkbox" id="checkbox-1" [checked]="fulfilled"
-          (click)="toggleItem()">
-        {{ wishText }}
-      </label>
+  <div class="form-check card">
+    <label class="form-check-label" [ngClass]="getClasses">
+      <input type="checkbox" name="checkbox" class="checkbox" id="checkbox-1" [checked]="wish.fulfilled"
+        (click)="toggleItem()">
+      {{ wish.wishText }}
+    </label>
+    <div class="card-footer">
+      <button type="button" class="btn btn-dark-danger btn-hover-light" (click)="removeItem()">Delete</button>
     </div>
-  </li>
+  </div>
+</li>

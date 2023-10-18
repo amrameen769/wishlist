@@ -12,22 +12,27 @@ $dark-primary: #9e0005 !default;
 $dark-secondary: #ff810a !default;
 $dark-accent: #ffa600 !default;
 
+$fade-text: #999999;
+$danger: #ff0e16;
+
 // Color Palette
 $themes: (
-  light: (
-    text: $light-text,
-    background: $light-background,
-    primary: $light-primary,
-    secondary: $light-secondary,
-    accent: $light-accent,
-  ),
-  dark: (
-    text: $dark-text,
-    background: $dark-background,
-    primary: $dark-primary,
-    secondary: $dark-secondary,
-    accent: $dark-accent,
-  ),
+ light: (
+  text: $light-text,
+  background: $light-background,
+  primary: $light-primary,
+  secondary: $light-secondary,
+  accent: $light-accent,
+  danger: $danger,
+ ),
+ dark: (
+  text: $dark-text,
+  background: $dark-background,
+  primary: $dark-primary,
+  secondary: $dark-secondary,
+  accent: $dark-accent,
+  danger: $danger,
+ ),
 );
 
 //  Spacing

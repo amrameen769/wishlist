@@ -1,53 +1,53 @@
 @use "sass:math";
 
 @each $theme, $obj in $themes {
-  $accent: map-get(
-    $map: $obj,
-    $key: "accent",
-  );
-  @each $attr, $color in $obj {
-    @if $attr == primary or $attr == secondary {
-      @if $theme == dark {
-        .btn-#{$theme}-#{$attr} {
-          @include btnColor($color, $dark-text, $accent);
-        }
-        .btn-hover-#{$theme} {
-          &:hover {
-            @include btnColor(lighten($dark-accent, 5), $dark-text, $accent);
-          }
-        }
-        .btn-ghost-#{$theme}-#{$attr} {
-          @include btnColor(
-            $light-background,
-            $light-text,
-            $base-border-thickness solid $color !important
-          );
-        }
-      }
-      @if $theme == light {
-        .btn-#{$theme}-#{$attr} {
-          @include btnColor($color, $light-text, $accent);
-        }
-        .btn-hover-#{$theme} {
-          &:hover {
-            @include btnColor(lighten($light-accent, 5), $dark-text, $accent);
-          }
-        }
-        .btn-ghost-#{$theme}-#{$attr} {
-          @include btnColor(
-            $light-background,
-            $color,
-            $base-border-thickness solid $color !important
-          );
-        }
-      }
+ $accent: map-get(
+  $map: $obj,
+  $key: "accent",
+ );
+ @each $attr, $color in $obj {
+  @if $attr == primary or $attr == secondary or $attr == danger {
+   @if $theme == dark {
+    .btn-#{$theme}-#{$attr} {
+     @include btnColor($color, $dark-text, $accent);
     }
+    .btn-hover-#{$theme} {
+     &:hover {
+      @include btnColor(lighten($dark-accent, 5), $dark-text, $accent);
+     }
+    }
+    .btn-ghost-#{$theme}-#{$attr} {
+     @include btnColor(
+      $light-background,
+      $light-text,
+      $base-border-thickness solid $color !important
+     );
+    }
+   }
+   @if $theme == light {
+    .btn-#{$theme}-#{$attr} {
+     @include btnColor($color, $light-text, $accent);
+    }
+    .btn-hover-#{$theme} {
+     &:hover {
+      @include btnColor(lighten($light-accent, 5), $dark-text, $accent);
+     }
+    }
+    .btn-ghost-#{$theme}-#{$attr} {
+     @include btnColor(
+      $light-background,
+      $color,
+      $base-border-thickness solid $color !important
+     );
+    }
+   }
   }
+ }
 }
 
 .btn {
-  padding: 0.5rem 1rem;
-  border-radius: math.div($base-border-radius, 3);
-  transition: background-color ease 300ms, color ease 300ms;
-  cursor: pointer;
+ padding: 0.5rem 1rem;
+ border-radius: math.div($base-border-radius, 3);
+ transition: background-color ease 300ms, color ease 300ms;
+ cursor: pointer;
 }
