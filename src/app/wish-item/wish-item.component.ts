@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WishItem } from 'src/shared/models/WishItem';
-import events from 'src/shared/services/EventService';
+import {EventService} from 'src/shared/services/EventService';
 
 @Component({
   selector: 'app-wish-item',
@@ -15,11 +15,13 @@ export class WishItemComponent {
     }
   }
 
+  constructor(private events: EventService){}
+
   toggleItem() {
     this.wish.fulfilled = !this.wish.fulfilled
   }
 
   removeItem() {
-    events.emit('removeWish', this.wish)
+    this.events.emit('removeWish', this.wish)
   }
 }
