@@ -25,6 +25,10 @@ $align-layout-values: stretch, center, flex-start, flex-end, start, end;
   display: flex;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
 .row {
   display: flex;
   flex-flow: row wrap;

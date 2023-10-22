@@ -8,6 +8,8 @@ import { AddWishComponent } from './add-wish/add-wish.component';
 import { WishFilterComponent } from './wish-filter/wish-filter.component';
 import { WishItemComponent } from './wish-item/wish-item.component';
 import {EventService} from "src/shared/services/EventService";
+import { MarkdownModule} from 'ngx-markdown';
+import { CodeHighlighterComponent } from './code-highlighter/code-highlighter.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,17 @@ import {EventService} from "src/shared/services/EventService";
     WishListComponent,
     AddWishComponent,
     WishFilterComponent,
-    WishItemComponent
+    WishItemComponent,
+    CodeHighlighterComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    MarkdownModule.forRoot(),
   ],
-  providers: [EventService],
+  providers: [
+    EventService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -45,6 +45,17 @@ $utilities: (
       5: $base-margin * 8,
     ),
   ),
+  margin-right: (
+    prefix: "mr",
+    values: (
+      0: 0,
+      1: $base-margin,
+      2: $base-margin * 2,
+      3: $base-margin * 4,
+      4: $base-margin * 6,
+      5: $base-margin * 8,
+    ),
+  ),
 );
 
 @each $property, $obj in $utilities {
