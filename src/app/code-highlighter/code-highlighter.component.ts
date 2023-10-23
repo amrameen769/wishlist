@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { markdown } from 'src/shared/mock/markdown';
 import * as ClipboardJS from 'clipboard';
 
@@ -8,7 +8,7 @@ import * as ClipboardJS from 'clipboard';
   styleUrls: ['./code-highlighter.component.scss'],
 })
 export class CodeHighlighterComponent {
-  markdown = markdown
+  @Input() markdownData!: string;
   copyStatus = false
   get copyStatusClass() {
     return {

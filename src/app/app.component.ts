@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { markdown } from 'src/shared/mock/markdown';
 import { WishItem } from 'src/shared/models/WishItem';
 import {EventService} from "src/shared/services/EventService";
 
@@ -14,6 +15,7 @@ export class AppComponent {
     new WishItem("Learn API")
   ];
   title = 'Wishlist';
+  markdownData = markdown;
 
   filter: any = () => []
 

@@ -10,6 +10,7 @@ import { WishItemComponent } from './wish-item/wish-item.component';
 import {EventService} from "src/shared/services/EventService";
 import { MarkdownModule} from 'ngx-markdown';
 import { CodeHighlighterComponent } from './code-highlighter/code-highlighter.component';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,14 @@ import { CodeHighlighterComponent } from './code-highlighter/code-highlighter.co
   imports: [
     BrowserModule,
     FormsModule,
-    MarkdownModule.forRoot(),
+    HttpClientModule,
+    MarkdownModule.forRoot({
+      loader: HttpClient
+    }),
   ],
   providers: [
     EventService,
+    HttpClient
   ],
   bootstrap: [AppComponent]
 })
