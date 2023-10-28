@@ -9,7 +9,7 @@ module.exports = {
   collectCoverage: true,
   coverageReporters: ['html'],
   coverageDirectory: 'coverage/angular-jest',
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
-    prefix: '<rootDir>/'
-  })
+  moduleNameMapper:{
+    "^src/(.*)$": "<rootDir>/src/$1"
+  }
 };
