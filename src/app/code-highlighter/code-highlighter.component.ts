@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { markdown } from 'src/shared/mock/markdown';
-import * as ClipboardJS from 'clipboard';
+import ClipboardJS from 'clipboard';
 
 @Component({
   selector: 'app-code-highlighter',
