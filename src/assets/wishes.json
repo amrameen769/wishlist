@@ -1,0 +1,6 @@
+[
+    
+    {"wishText": "Learn Angular", "fulfilled": false},
+    {"wishText":"Learn Routing", "fulfilled": true},
+    {"wishText":"Learn API", "fulfilled": false}
+]
