@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { markdown } from 'src/shared/mock/markdown';
 import { WishItem } from 'src/shared/models/WishItem';
-import {EventService} from "src/shared/services/EventService";
-import { WishService } from './wish.service';
+import { EventService } from "src/shared/services/EventService";
+import { WishService } from './wish/wish.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { WishService } from './wish.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  items!: WishItem[]
+  items: WishItem[] = []
   title = 'Wishlist';
   markdownData = markdown;
 
@@ -24,8 +24,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      this.wishService.getWishes().subscribe((data: any) => {
-        this.items = data
-      });
+    this.wishService.getWishes().subscribe(
+      {
+        next: (value: any) => {
+            this.items = value
+        },
+        error(err) {
+            alert(err)
+        },
+      }
+    );
   }
 }

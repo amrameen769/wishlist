@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { WishItem } from 'src/shared/models/WishItem';
+import { catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,17 @@ export class WishService {
   }
 
   getWishes() {
-    return this.http.get("assets/wishes.json");
+    return this.http.get("assets/wishes.json").pipe(catchError(this.httpError));
+  }
+
+  private httpError(error: HttpErrorResponse) {
+    if(error.status === 0){
+      console.error("something wrong with client or network", error.error);
+    } else {
+      console.error("something went wrong in the server", error.error);
+    }
+
+    return throwError(() => new Error("Couldn't fetch data"))
   }
 
   private addWishes(wish: WishItem) {
