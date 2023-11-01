@@ -7,10 +7,9 @@ import { catchError, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class WishService {
-
   constructor(private http: HttpClient) { }
 
-  private getStandardOptions() : any {
+  private getStandardOptions(): any {
     return {
       headers: new HttpHeaders({
         'Content-Type': "application/json"
@@ -23,7 +22,7 @@ export class WishService {
   }
 
   private httpError(error: HttpErrorResponse) {
-    if(error.status === 0){
+    if (error.status === 0) {
       console.error("something wrong with client or network", error.error);
     } else {
       console.error("something went wrong in the server", error.error);

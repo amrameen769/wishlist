@@ -11,7 +11,6 @@ import { WishModule } from './wish/wish.module';
 @NgModule({
   declarations: [
     AppComponent,
-   
     CodeHighlighterComponent,
   ],
   imports: [

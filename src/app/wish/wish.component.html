@@ -1,0 +1,12 @@
+<div class="container">
+    <app-add-wish
+    (addWish)="items.push($event)"
+    ></app-add-wish>
+      <div class="row m-2 align-center">
+        <app-wish-filter
+        [(filter)]="filter"
+        ></app-wish-filter>
+      </div>
+      <app-wish-list [wishes]="items.filter(filter)"></app-wish-list>
+      <!-- <app-code-highlighter [markdownData]="markdownData" ></app-code-highlighter> -->
+    </div>
