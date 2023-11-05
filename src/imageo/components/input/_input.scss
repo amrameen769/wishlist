@@ -1,5 +1,10 @@
 @use "sass:math";
 
+.form-group {
+ padding: 0.5rem;
+ margin-top: 0.25rem;
+}
+
 .form-input {
  border: none;
  box-shadow: $base-box-shadow;
@@ -35,14 +40,14 @@ select {
   position: absolute;
   pointer-events: none;
  }
- &:before {
-  content: "";
-  right: 6px;
-  top: 0px;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  pointer-events: none;
-  display: block;
- }
+ //  &:before {
+ //   content: "";
+ //   right: 6px;
+ //   top: 0px;
+ //   width: 20px;
+ //   height: 20px;
+ //   position: absolute;
+ //   pointer-events: none;
+ //   display: block;
+ //  }
 }

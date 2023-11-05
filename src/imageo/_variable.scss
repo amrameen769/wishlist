@@ -52,3 +52,9 @@ $font-size-sm: calc($base-font-size * 0.75);
 $font-size-lg: calc($base-font-size * 1.5);
 $font-size-xl: calc($base-font-size * 2);
 $font-size-xxl: calc($base-font-size * 3);
+
+// Grid Properties
+$directions: (
+ row: row,
+ col: column,
+);

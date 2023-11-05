@@ -7,6 +7,7 @@ import { MarkdownModule} from 'ngx-markdown';
 import { CodeHighlighterComponent } from './code-highlighter/code-highlighter.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { WishModule } from './wish/wish.module';
+import { ContactModule } from './contact/contact.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { WishModule } from './wish/wish.module';
     MarkdownModule.forRoot({
       loader: HttpClient
     }),
-    WishModule
+    WishModule,
+    ContactModule
   ],
   providers: [
     EventService,
