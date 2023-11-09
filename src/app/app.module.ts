@@ -8,6 +8,7 @@ import { CodeHighlighterComponent } from './code-highlighter/code-highlighter.co
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { WishModule } from './wish/wish.module';
 import { ContactModule } from './contact/contact.module';
+import { BreadcrumpsComponent } from './breadcrumps/breadcrumps.component';
 
 @NgModule({
   declarations: [
