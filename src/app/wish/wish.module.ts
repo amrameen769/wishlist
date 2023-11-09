@@ -6,6 +6,7 @@ import { AddWishComponent } from './add-wish/add-wish.component';
 import { WishFilterComponent } from './wish-filter/wish-filter.component';
 import { WishItemComponent } from './wish-item/wish-item.component';
 import { WishComponent } from './wish.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { WishComponent } from './wish.component';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     WishComponent

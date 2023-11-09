@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { BreadcrumpsComponent } from '../breadcrumps/breadcrumps.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
 @NgModule({
   declarations: [
     ContactFormComponent,
-    BreadcrumpsComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   exports: [
     ContactFormComponent
