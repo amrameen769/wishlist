@@ -13,5 +13,6 @@
         <br>
         <input class="btn btn-light-secondary" type="submit" value="Submit">
     </form>
+    <p class="multiline" [innerHTML]="para | highlight: 'iste'"></p>
     <app-breadcrumps [variant]="'card'" [breadCrumbPaths]="['hello1', 'hello2', 'hello3', 'hello4']"></app-breadcrumps>
 </div>

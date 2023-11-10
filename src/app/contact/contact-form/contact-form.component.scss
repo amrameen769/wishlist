@@ -1,0 +1,5 @@
+@import '/src/imageo/mixins';
+
+.multiline {
+ @include multiLineEllipsis2($lines-to-show: 2);
+}
