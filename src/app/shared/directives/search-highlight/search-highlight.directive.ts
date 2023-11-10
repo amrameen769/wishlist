@@ -25,7 +25,7 @@ export class SearchHighlightDirective {
   }
 
   getFormattedText() {
-    const re = new RegExp(`(${ this.searchedWords.join('|') })`, 'g');
+    const re = new RegExp(`(${ this.searchedWords.join('|') })`, 'ig');
 
     return this.text.replace(re, `<span class="${this.classToApply}">$1</span>`);
   }
