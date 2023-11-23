@@ -1,0 +1,33 @@
+.avatar-drop{
+    position: absolute;
+    top: 4.25rem;
+    right: -1.5rem;
+    min-width: 16rem;
+    height: auto;
+    min-height: 8rem;
+    background-color: #242222;
+    color: #fff;
+    padding: 1rem;
+
+    .tabs{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 1rem;
+
+        button {
+            background: none;
+            border: none;
+            width: 100%;
+        }
+        
+        .active{
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #0f7ce2;
+        }
+    }
+
+    .contents{
+        margin-top: 1rem;
+    }
+}

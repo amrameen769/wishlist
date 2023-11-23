@@ -1,0 +1,8 @@
+<div class="avatar-main-container">
+    <button class="avatar-container" (click)="toggleMenu()">
+        <div class="avatar-border">
+            <img [src]="userIcon" class="h-2">
+        </div>
+    </button>
+    <app-avatar-drop *ngIf="showMenu"></app-avatar-drop>
+</div>
