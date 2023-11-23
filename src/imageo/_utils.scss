@@ -1,82 +1,93 @@
 @use "sass:math";
 
 $utilities: (
-  padding: (
-    prefix: "p",
-    values: (
-      0: 0,
-      1: $base-padding,
-      2: $base-padding * 2,
-      3: $base-padding * 4,
-      4: $base-padding * 6,
-      5: $base-padding * 8,
-    ),
+ padding: (
+  prefix: "p",
+  values: (
+   0: 0,
+   1: $base-padding,
+   2: $base-padding * 2,
+   3: $base-padding * 4,
+   4: $base-padding * 6,
+   5: $base-padding * 8,
   ),
-  padding-left: (
-    prefix: "pl",
-    values: (
-      0: 0,
-      1: $base-padding,
-      2: $base-padding * 2,
-      3: $base-padding * 4,
-      4: $base-padding * 6,
-      5: $base-padding * 8,
-    ),
+ ),
+ padding-left: (
+  prefix: "pl",
+  values: (
+   0: 0,
+   1: $base-padding,
+   2: $base-padding * 2,
+   3: $base-padding * 4,
+   4: $base-padding * 6,
+   5: $base-padding * 8,
   ),
-  margin: (
-    prefix: "m",
-    values: (
-      0: 0,
-      1: $base-margin,
-      2: $base-margin * 2,
-      3: $base-margin * 4,
-      4: $base-margin * 6,
-      5: $base-margin * 8,
-    ),
+ ),
+ margin: (
+  prefix: "m",
+  values: (
+   0: 0,
+   1: $base-margin,
+   2: $base-margin * 2,
+   3: $base-margin * 4,
+   4: $base-margin * 6,
+   5: $base-margin * 8,
   ),
-  margin-top: (
-    prefix: "mt",
-    values: (
-      0: 0,
-      1: $base-margin,
-      2: $base-margin * 2,
-      3: $base-margin * 4,
-      4: $base-margin * 6,
-      5: $base-margin * 8,
-    ),
+ ),
+ margin-top: (
+  prefix: "mt",
+  values: (
+   0: 0,
+   1: $base-margin,
+   2: $base-margin * 2,
+   3: $base-margin * 4,
+   4: $base-margin * 6,
+   5: $base-margin * 8,
   ),
-  margin-right: (
-    prefix: "mr",
-    values: (
-      0: 0,
-      1: $base-margin,
-      2: $base-margin * 2,
-      3: $base-margin * 4,
-      4: $base-margin * 6,
-      5: $base-margin * 8,
-    ),
+ ),
+ margin-right: (
+  prefix: "mr",
+  values: (
+   0: 0,
+   1: $base-margin,
+   2: $base-margin * 2,
+   3: $base-margin * 4,
+   4: $base-margin * 6,
+   5: $base-margin * 8,
   ),
+ ),
+ height: (
+  prefix: "h",
+  values: (
+   0: 0,
+   1: $base-height,
+   2: $base-height * 2,
+   3: $base-height * 4,
+   4: $base-height * 6,
+   5: $base-height * 8,
+  ),
+ ),
 );
 
 @each $property, $obj in $utilities {
-  $prefix: map-get(
-    $map: $obj,
-    $key: "prefix",
-  );
-  $values: map-get(
-    $map: $obj,
-    $key: "values",
-  );
+ $prefix: map-get(
+  $map: $obj,
+  $key: "prefix",
+ );
+ $values: map-get(
+  $map: $obj,
+  $key: "values",
+ );
 
-  @each $k, $v in $values {
-    @if $k == "default" {
-      .#{$prefix} {
-        #{$property}: $v;
-      }
-    } @else {
-      .#{$prefix}-#{$k} {
-        #{$property}: $v;
-      }
-    }
+ @each $k, $v in $values {
+  @if $k == "default" {
+   .#{$prefix} {
+    #{$property}: $v;
+   }
+  } @else {
+   .#{$prefix}-#{$k} {
+    #{$property}: $v;
+   }
   }
+ }
 }
