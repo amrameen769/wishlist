@@ -4,6 +4,8 @@ import { HighlightPipe } from '../pipes/highlight.pipe';
 import { BreadcrumpsComponent } from '../breadcrumps/breadcrumps.component';
 import { SearchHighlightDirective } from './directives/search-highlight/search-highlight.directive';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { AvatarComponent } from '../avatar/avatar.component';
+import { AvatarDropComponent } from '../avatar-drop/avatar-drop.component';
 
 
 
@@ -12,7 +14,9 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     HighlightPipe,
     BreadcrumpsComponent,
     SearchHighlightDirective,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    AvatarComponent,
+    AvatarDropComponent
   ],
   imports: [
     CommonModule
@@ -21,7 +25,9 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     HighlightPipe,
     BreadcrumpsComponent,
     SearchHighlightDirective,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    AvatarComponent,
+    AvatarDropComponent
   ]
 })
 export class SharedModule { }

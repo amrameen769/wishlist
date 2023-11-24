@@ -11,16 +11,12 @@ import { WishModule } from './wish/wish.module';
 import { ContactModule } from './contact/contact.module';
 import { SharedModule } from './shared/shared.module';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AvatarComponent } from './avatar/avatar.component';
-import { AvatarDropComponent } from './avatar-drop/avatar-drop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CodeHighlighterComponent,
     NavbarComponent,
-    AvatarComponent,
-    AvatarDropComponent,
   ],
   imports: [
     BrowserModule,
