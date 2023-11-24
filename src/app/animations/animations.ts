@@ -11,7 +11,7 @@ import {
       style({
         opacity: 0,
         position: 'absolute',
-        top: '1rem',
+        top: '4.25rem',
         left: '-13.5rem',
         transform: 'scaleY(0)'
       }),
@@ -38,7 +38,7 @@ import {
         animate("200ms", style({
           opacity: 0,
           position: 'absolute',
-          top: '1rem',
+          top: '4.25rem',
           left: '-13.5rem',
           transform: 'scaleY(0)'
         }))
