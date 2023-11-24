@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HighlightPipe } from '../pipes/highlight.pipe';
 import { BreadcrumpsComponent } from '../breadcrumps/breadcrumps.component';
 import { SearchHighlightDirective } from './directives/search-highlight/search-highlight.directive';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 
 
@@ -10,7 +11,8 @@ import { SearchHighlightDirective } from './directives/search-highlight/search-h
   declarations: [
     HighlightPipe,
     BreadcrumpsComponent,
-    SearchHighlightDirective
+    SearchHighlightDirective,
+    ClickOutsideDirective
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { SearchHighlightDirective } from './directives/search-highlight/search-h
   exports: [
     HighlightPipe,
     BreadcrumpsComponent,
-    SearchHighlightDirective
+    SearchHighlightDirective,
+    ClickOutsideDirective
   ]
 })
 export class SharedModule { }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import {EventService} from "src/shared/services/EventService";
@@ -23,6 +24,7 @@ import { AvatarDropComponent } from './avatar-drop/avatar-drop.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     MarkdownModule.forRoot({
       loader: HttpClient

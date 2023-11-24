@@ -1,8 +1,8 @@
-<div class="avatar-main-container">
+<div class="avatar-main-container" appClickOutside (clickOutside)="clickedOutside()">
     <button class="avatar-container" (click)="toggleMenu()">
         <div class="avatar-border">
             <img [src]="userIcon" class="h-2">
         </div>
     </button>
-    <app-avatar-drop *ngIf="showMenu"></app-avatar-drop>
+    <app-avatar-drop *ngIf="showMenu" [@dropDownMenu]></app-avatar-drop>
 </div>
