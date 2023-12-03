@@ -3,17 +3,16 @@
     <div>
         <div class="d-flex justify-space-between flex-grow bg-light-primary-5 p-2">
             <div>FileName</div>
-           <div>
-            <div class="mr-1" [ngClass]="copyStatusClass"><span>Copied!</span></div>
-            <button class="clipboard" (click)="copyToClipboard()">Copy</button>
-           </div>
+            <div>
+                <div class="mr-1" [ngClass]="copyStatusClass"><span>Copied!</span></div>
+                <button class="clipboard" (click)="copyToClipboard()">Copy</button>
+            </div>
         </div>
         <div markdown
-        ngPreserveWhitespaces
-        lineNumbers
-        lineHighlight
-        [src]="'shared/mock/codes.md'"
-        id="copyToClipboard"
+             lineNumbers
+             lineHighlight
+             [src]="'shared/mock/codes.md'"
+             id="copyToClipboard"
         >
         </div>
     </div>

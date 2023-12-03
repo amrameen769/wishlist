@@ -1,6 +1,8 @@
 <div class="breadcrumb_container">
     <div class="breadcrumb_group" *ngFor="let item of breadCrumbPaths; index as i">
-        <a class="breadcrumb_title" [href]="breadcrumbPath[i]"><div [innerHTML]="item | highlight: 'hel'"></div></a>
+        <a class="breadcrumb_title" [href]="breadcrumbPath[i]">
+            <div [innerHTML]="item | highlight: 'hel'"></div>
+        </a>
         <span *ngIf="i !== breadCrumbPaths.length-1">
             <div class="breadcrumb_icon" *ngIf="icon !== '/'">
                 <img [src]="icon" alt="something">

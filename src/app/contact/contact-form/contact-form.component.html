@@ -1,22 +1,22 @@
 <div class="container">
-    <form class="d-flex d-flex-col" action="process_form.php" method="post">
+    <form class="d-flex d-flex-col" action="" method="post">
         <label for="senderName">Sender Name:</label>
         <input class="form-group form-input" type="text" id="senderName" name="senderName" required>
         <br>
-    
+
         <label for="senderEmail">Sender Email:</label>
         <input class="form-group form-input" type="email" id="senderEmail" name="senderEmail" required>
         <br>
-    
+
         <label for="senderMessage">Sender Message:</label>
         <textarea class="form-group form-input" id="senderMessage" name="senderMessage" rows="4" required></textarea>
         <br>
         <input class="btn btn-light-secondary" type="submit" value="Submit">
     </form>
     <p appSearchHighlight
-    [searchedWords]="['lorem']"
-    [text]="'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit animi quia similique dolore ex aspernatur, atque hic sed culpa quasi illo labore voluptatibus eveniet ratione ab quisquam id! Fuga velit possimus dicta libero dolore, natus magnam iste eius itaque, aliquam quasi expedita corporis ullam'"
-    classToApply="highlight"
-    class="multiline" ></p>
+       [searchedWords]="['lorem']"
+       [text]="'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sit animi quia similique dolore ex aspernatur, atque hic sed culpa quasi illo labore voluptatibus eveniet ratione ab quisquam id! Fuga velit possimus dicta libero dolore, natus magnam iste eius itaque, aliquam quasi expedita corporis ullam'"
+       classToApply="highlight"
+       class="multiline"></p>
     <app-breadcrumps [variant]="'card'" [breadCrumbPaths]="['hello1', 'hello2', 'hello3', 'hello4']"></app-breadcrumps>
 </div>

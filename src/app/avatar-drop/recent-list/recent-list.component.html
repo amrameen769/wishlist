@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let item of paginatedRec">
+        {{ item }}
+    </li>
+</ul>
+<div *ngIf="totalPages > 0" class="pagination d-flex">
+    <button class="btn btn-dark-secondary btn-hover-dark" (click)="changePage(currentPage-1)">Prev</button>
+    <button class="btn btn-ghost-light-secondary">{{ currentPage }} of {{ totalPages }}</button>
+    <button class="btn btn-dark-secondary btn-hover-dark" (click)="changePage(currentPage+1)">Next</button>
+</div>

@@ -1,33 +1,34 @@
-import { Directive, ElementRef, Input, Renderer2, SimpleChanges } from '@angular/core';
+import {Directive, ElementRef, Input, Renderer2, SimpleChanges} from '@angular/core';
 
 @Directive({
-  selector: '[appSearchHighlight]'
+    selector: '[appSearchHighlight]'
 })
 export class SearchHighlightDirective {
 
-  @Input() searchedWords: string[];
-  @Input() text: string;
-  @Input() classToApply: string;
+    @Input() searchedWords: string[];
+    @Input() text: string;
+    @Input() classToApply: string;
 
-  constructor(private el: ElementRef, private renderer: Renderer2) { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!this.searchedWords || !this.searchedWords.length || !this.classToApply) {
-      this.renderer.setProperty(this.el.nativeElement, 'innerHTML', this.text);
-      return;
+    constructor(private el: ElementRef, private renderer: Renderer2) {
     }
 
-    this.renderer.setProperty(
-      this.el.nativeElement,
-      'innerHTML',
-      this.getFormattedText()
-    );
-  }
+    ngOnChanges(changes: SimpleChanges): void {
+        if (!this.searchedWords || !this.searchedWords.length || !this.classToApply) {
+            this.renderer.setProperty(this.el.nativeElement, 'innerHTML', this.text);
+            return;
+        }
 
-  getFormattedText() {
-    const re = new RegExp(`(${ this.searchedWords.join('|') })`, 'ig');
+        this.renderer.setProperty(
+            this.el.nativeElement,
+            'innerHTML',
+            this.getFormattedText()
+        );
+    }
 
-    return this.text.replace(re, `<span class="${this.classToApply}">$1</span>`);
-  }
+    getFormattedText() {
+        const re = new RegExp(`(${this.searchedWords.join('|')})`, 'ig');
+
+        return this.text.replace(re, `<span class="${this.classToApply}">$1</span>`);
+    }
 
 }

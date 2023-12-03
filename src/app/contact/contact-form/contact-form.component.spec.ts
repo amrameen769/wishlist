@@ -1,21 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ContactFormComponent } from './contact-form.component';
+import {ContactFormComponent} from './contact-form.component';
 
 describe('ContactFormComponent', () => {
-  let component: ContactFormComponent;
-  let fixture: ComponentFixture<ContactFormComponent>;
+    let component: ContactFormComponent;
+    let fixture: ComponentFixture<ContactFormComponent>;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [ContactFormComponent]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            declarations: [ContactFormComponent]
+        });
+        fixture = TestBed.createComponent(ContactFormComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
     });
-    fixture = TestBed.createComponent(ContactFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });

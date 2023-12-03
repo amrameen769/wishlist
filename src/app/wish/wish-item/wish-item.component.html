@@ -1,12 +1,12 @@
 <li>
-  <div class="form-check card">
-    <label class="form-check-label d-flex gap-1" [ngClass]="getClasses">
-      <input type="checkbox" name="checkbox" class="checkbox" id="checkbox-1" [checked]="wish.fulfilled"
-        (click)="toggleItem()">
-        <div [innerHtml]="wish.wishText | highlight : 'learn'"></div>
-      </label>
-    <div class="card-footer">
-      <button type="button" class="btn btn-dark-danger btn-hover-light" (click)="removeItem()">Delete</button>
+    <div class="form-check card">
+        <label class="form-check-label d-flex gap-1" [ngClass]="getClasses">
+            <input type="checkbox" name="checkbox" class="checkbox" id="checkbox-1" [checked]="wish.fulfilled"
+                   (click)="toggleItem()">
+            <div [innerHtml]="wish.wishText | highlight : 'learn'"></div>
+        </label>
+        <div class="card-footer">
+            <button type="button" class="btn btn-dark-danger btn-hover-light" (click)="removeItem()">Delete</button>
+        </div>
     </div>
-  </div>
 </li>

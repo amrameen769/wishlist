@@ -1,20 +1,22 @@
 <div class="avatar-drop">
     <div class="tabs">
-        <button [ngClass]="getActiveTabClass('fav')" (click)="switchTab('fav')" class="d-flex justify-center align-center gap-1">
+        <button [ngClass]="getActiveTabClass('fav')" (click)="switchTab('fav')"
+                class="d-flex justify-center align-center gap-1">
             <img [src]="favIcon" alt="" class="h-2">
             Favorites
         </button>
-        <button [ngClass]="getActiveTabClass('recent')" (click)="switchTab('recent')" class="d-flex justify-center align-center gap-1">
+        <button [ngClass]="getActiveTabClass('recent')" (click)="switchTab('recent')"
+                class="d-flex justify-center align-center gap-1">
             <img [src]="recIcon" alt="" class="h-2">
             Recent
         </button>
     </div>
     <div class="contents">
         <div *ngIf="currentTab==='fav'" id="fav">
-            Favorites
+            <app-favorite-list />
         </div>
         <div *ngIf="currentTab==='recent'" id="recent">
-            Recent
+            <app-recent-list />
         </div>
     </div>
 </div>

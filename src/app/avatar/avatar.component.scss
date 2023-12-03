@@ -1,35 +1,35 @@
 .avatar-container {
- height: 3rem;
- width: 3rem;
- display: flex;
- justify-content: center;
- align-items: center;
- border: 2px solid black;
- border-radius: 50%;
- position: relative;
- background: none;
-
- .avatar-border {
-  border: 2px solid black;
-  border-radius: 50%;
-  height: 2rem;
-  width: 2rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 3rem;
+  width: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
- }
+  border: 2px solid black;
+  border-radius: 50%;
+  position: relative;
+  background: none;
+
+  .avatar-border {
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .avatar-main-container {
- position: relative;
+  position: relative;
 
- .drop-container{
+  .drop-container {
     position: absolute;
     top: 4.25rem;
     left: -13.5rem;
- }
+  }
 }
