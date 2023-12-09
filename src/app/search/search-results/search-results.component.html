@@ -2,14 +2,19 @@
 <div class="d-flex container">
  <app-search-filter/>
  <div class="d-flex-column gap-1 pl-2">
-  <h2>Search Results ({{searchResults.length}})</h2>
-  <h3>Filtered Results ({{filteredResults.length}})</h3>
+  <h2>Search Results ({{ searchResults.length }})</h2>
+  <h3>Filtered Results ({{ paginatedFilteredResults.length }})</h3>
+  <div class="d-flex gap-2">
+   <button class="btn btn-ghost-light-primary" (click)="changePage(currentPage-1)">Prev</button>
+   <span>{{ currentPage }}</span>
+   <button class="btn btn-ghost-light-primary" (click)="changePage(currentPage+1)">Next</button>
+  </div>
   <ul class="d-flex-column gap-2">
    <li *ngFor="let item of filteredResultMap | keyvalue">
-    <h4>{{ item.key }} ({{extractData(item).length}})</h4>
+    <h4>{{ item.key }} ({{ extractData(item).length }})</h4>
     <ul class="d-flex-column mt-1">
      <li class="card mt-1" *ngFor="let result of extractData(item)">
-      {{result.title}}
+      {{ result.title }}
      </li>
     </ul>
    </li>

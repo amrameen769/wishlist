@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {SearchService} from "../search-service.service";
 import {filterStruct, SubCategory} from "../interface";
 import {FilterService} from "../filter/filter.service";
+import {PaginationService} from "../../shared/pagination.service";
 
 @Component({
  selector: 'app-search-results',
@@ -10,7 +11,7 @@ import {FilterService} from "../filter/filter.service";
 })
 export class SearchResultsComponent implements OnInit {
 
- constructor(private searchHandler: SearchService, private filterHandler: FilterService) {
+ constructor(private searchHandler: SearchService, private filterHandler: FilterService, private paginator: PaginationService) {
  }
 
 
@@ -20,9 +21,14 @@ export class SearchResultsComponent implements OnInit {
  filteredResults: any = []
  filteredResultMap: any = []
 
+ totalPages: number
+ currentPage: number
+ paginatedFilteredResults: any = []
+
+
  // testing purpose
  ngOnInit() {
-  this.showSearchResults('d')
+  // this.showSearchResults('d')
   this.filterHandler.currentData.subscribe((currentFilters) => {
    let currentFilterResults: filterStruct[] = []
    currentFilters.forEach((filter) => {
@@ -40,8 +46,29 @@ export class SearchResultsComponent implements OnInit {
     }
    })
    this.filteredResults = currentFilterResults.length > 0 ? currentFilterResults : this.searchResults
-   this.getCategorizedResults()
+   this.filteredResults.sort((a: any, b: any) => {
+    let fa = a.category.toLowerCase(),
+     fb = b.category.toLowerCase();
+    if (fa < fb) {
+     return -1;
+    }
+    if (fa > fb) {
+     return 1;
+    }
+    return 0;
+   })
+   this.totalPages = this.paginator.getTotalPages(this.filteredResults.length, 25)
+   this.changePage(1);
   })
+ }
+
+ changePage(page: number) {
+  this.paginator.changePage(page);
+  this.currentPage = this.paginator.currentPage;
+  const inset = (this.currentPage - 1) * this.paginator.limit
+  const offset = inset + this.paginator.limit
+  this.paginatedFilteredResults = this.filteredResults.filter((item: any, index: any) => index >= inset && index < offset)
+  this.getCategorizedResults()
  }
 
  async getSearchResults(searchParam: string) {
@@ -103,7 +130,7 @@ export class SearchResultsComponent implements OnInit {
 
  getCategorizedResults() {
   this.filteredResultMap = {}
-  this.filteredResults.forEach((fres: any) => {
+  this.paginatedFilteredResults.forEach((fres: any) => {
    if (this.filteredResultMap.hasOwnProperty(fres.category)) {
     this.filteredResultMap[fres.category].push(fres)
    } else {
@@ -113,7 +140,7 @@ export class SearchResultsComponent implements OnInit {
   })
  }
 
- extractData(object: any){
+ extractData(object: any) {
   return object.value
  }
 }
