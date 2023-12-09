@@ -37,7 +37,7 @@ export class SearchResultsComponent implements OnInit {
      })
     }
    })
-   this.filteredResults = currentFilterResults
+   this.filteredResults = currentFilterResults.length > 0 ? currentFilterResults : this.searchResults
   })
  }
 

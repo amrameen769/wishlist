@@ -1,2 +1,11 @@
-<app-search-bar (searchEvent)="showSearchResults($event)" />
-<app-search-filter />
+<app-search-bar (searchEvent)="showSearchResults($event)"/>
+<div class="d-flex container">
+ <app-search-filter/>
+ <div class="d-flex-column gap-1 pl-2">
+  <h3>Search Results ({{searchResults.length}})</h3>
+  <h4>Filtered Results ({{filteredResults.length}})</h4>
+  <ul class="d-flex-column gap-2">
+   <li class="card" *ngFor="let result of filteredResults">{{result.title}}</li>
+  </ul>
+ </div>
+</div>
