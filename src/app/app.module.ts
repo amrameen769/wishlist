@@ -11,29 +11,33 @@ import {WishModule} from './wish/wish.module';
 import {ContactModule} from './contact/contact.module';
 import {SharedModule} from './shared/shared.module';
 import {NavbarComponent} from './navbar/navbar.component';
+import {SearchModule} from "./search/search.module";
+import {RouterModule} from "@angular/router";
+import routes from "./app-routing.module";
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        CodeHighlighterComponent,
-        NavbarComponent,
-    ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        HttpClientModule,
-        MarkdownModule.forRoot({
-            loader: HttpClient
-        }),
-        WishModule,
-        ContactModule,
-        SharedModule
-    ],
-    providers: [
-        EventService,
-        HttpClient
-    ],
-    bootstrap: [AppComponent]
+ declarations: [
+  AppComponent,
+  CodeHighlighterComponent,
+  NavbarComponent,
+ ],
+ imports: [
+  BrowserModule,
+  BrowserAnimationsModule,
+  HttpClientModule,
+  RouterModule.forRoot(
+   routes,
+  ),
+  MarkdownModule.forRoot({
+   loader: HttpClient
+  }),
+  SharedModule,
+ ],
+ providers: [
+  EventService,
+  HttpClient
+ ],
+ bootstrap: [AppComponent]
 })
 export class AppModule {
 }

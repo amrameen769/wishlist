@@ -7,24 +7,26 @@ import {WishFilterComponent} from './wish-filter/wish-filter.component';
 import {WishItemComponent} from './wish-item/wish-item.component';
 import {WishComponent} from './wish.component';
 import {SharedModule} from '../shared/shared.module';
+import {WishRoutingModule} from "./wish-routing.module";
 
 
 @NgModule({
-    declarations: [
-        WishComponent,
-        WishListComponent,
-        AddWishComponent,
-        WishFilterComponent,
-        WishItemComponent,
-    ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        SharedModule
-    ],
-    exports: [
-        WishComponent
-    ],
+ declarations: [
+  WishComponent,
+  WishListComponent,
+  AddWishComponent,
+  WishFilterComponent,
+  WishItemComponent,
+ ],
+ imports: [
+  CommonModule,
+  FormsModule,
+  SharedModule,
+  WishRoutingModule
+ ],
+ exports: [
+  WishComponent
+ ],
 })
 export class WishModule {
 }
