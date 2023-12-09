@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from "../search-service.service";
-import {filterStruct} from "../interface";
+import {filterStruct, SubCategory} from "../interface";
 import {FilterService} from "../filter/filter.service";
 
 @Component({
@@ -17,10 +17,28 @@ export class SearchResultsComponent implements OnInit {
  searchResults: any = []
  searchResultsMap: any = {}
  searchResultFilter: filterStruct[] = []
+ filteredResults: any = []
 
  // testing purpose
  ngOnInit() {
-  this.getSearchResults('chron')
+  this.filterHandler.currentData.subscribe((currentFilters) => {
+   let currentFilterResults: filterStruct[] = []
+   currentFilters.forEach((filter) => {
+    if (filter.checked) {
+     currentFilterResults.push(...this.searchResultsMap[filter.categoryName])
+    } else if (filter.partialChecked) {
+     filter.subCategories.forEach((subCat: SubCategory) => {
+      if (subCat.checked) {
+       const subCategoryResults = this.searchResultsMap[filter.categoryName].filter((result: any) => {
+        return result.subcategory === subCat.categoryName
+       })
+       currentFilterResults.push(...subCategoryResults)
+      }
+     })
+    }
+   })
+   this.filteredResults = currentFilterResults
+  })
  }
 
  async getSearchResults(searchParam: string) {
@@ -68,7 +86,6 @@ export class SearchResultsComponent implements OnInit {
   })
 
   this.searchResultFilter = resultFilter
-  this.filterHandler.changeFilter(this.searchResultFilter);
 
   return matchedResults
  }
@@ -76,6 +93,7 @@ export class SearchResultsComponent implements OnInit {
  async showSearchResults(searchParam: string) {
   if (searchParam) {
    this.searchResults = await this.getSearchResults(searchParam)
+   this.filterHandler.changeFilter(this.searchResultFilter);
   }
  }
 

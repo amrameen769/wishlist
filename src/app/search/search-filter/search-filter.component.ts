@@ -32,6 +32,7 @@ export class SearchFilterComponent implements OnInit {
    })
    return mainCat
   })
+  this.filterHandler.changeFilter(clearedFilter)
  }
 
  changeAction(event: any) {
@@ -72,6 +73,7 @@ export class SearchFilterComponent implements OnInit {
    }
    if (someChecked) {
     updateMainCategory.partialChecked = true
+    updateMainCategory.checked = false
    }
    if (noneChecked) {
     updateMainCategory.partialChecked = false

@@ -10,13 +10,3 @@ export interface filterStruct {
     checked: boolean
     partialChecked: boolean
 }
-
-export interface filterTriggerEvent {
-    categoryName: string
-    checked: boolean
-    partiallyChecked: boolean
-    subCategory: {
-        categoryName: string
-        checked: boolean
-    }
-}
