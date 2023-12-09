@@ -76,14 +76,14 @@ export class SearchFilterComponent implements OnInit {
  }
 
  checkIfAllChecked(subCategories: SubCategory[]) {
-  return subCategories.every(subCat => subCat.checked)
+  return subCategories.every(subCat => subCat.checked === true)
  }
 
  checkIfNoneChecked(subCategories: SubCategory[]) {
-  return subCategories.every(subCat => subCat.checked)
+  return subCategories.every(subCat => subCat.checked === false)
  }
 
  checkIfSomeSelected(subCategories: SubCategory[]) {
-  return subCategories.every(subCat => !subCat.checked)
+  return subCategories.every(subCat => subCat.checked === true)
  }
 }
