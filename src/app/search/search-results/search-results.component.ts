@@ -72,10 +72,8 @@ export class SearchResultsComponent implements OnInit {
  }
 
  async getSearchResults(searchParam: string) {
-  const res = await fetch("assets/mockdata/search-data.json")
-  const results = await res.json()
-  const regex = new RegExp(searchParam, 'i')
-  const matchedResults = results.filter((result: any) => regex.test(result.title))
+
+  const matchedResults = await this.searchHandler.getData(searchParam)
 
   matchedResults.forEach((mres: any) => {
    if (this.searchResultsMap.hasOwnProperty(mres.category)) {
