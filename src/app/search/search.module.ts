@@ -6,6 +6,7 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import {FormsModule} from "@angular/forms";
 import {SearchService} from "./search-service.service";
 import { SearchFilterComponent } from './search-filter/search-filter.component';
+import {FilterService} from "./filter/filter.service";
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { SearchFilterComponent } from './search-filter/search-filter.component';
   SearchRoutingModule,
   FormsModule
  ],
- providers: [SearchService]
+ providers: [SearchService, FilterService]
 })
 export class SearchModule {
 }
