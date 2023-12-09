@@ -1,5 +1,4 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {NgModel} from "@angular/forms";
 
 @Component({
   selector: 'app-search-bar',
@@ -10,7 +9,7 @@ export class SearchBarComponent {
  searchParam: string
  @Output() searchEvent = new EventEmitter<string>()
 
- onSubmit(event: any){
+ onSubmit(){
   this.searchEvent.emit(this.searchParam)
  }
 }
