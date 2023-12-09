@@ -1,1 +1,8 @@
-<p>search-bar works!</p>
+<div class="container">
+ <div class="d-flex">
+  <input type="text" [(ngModel)]="searchParam" class="container form-input p-1 m-1" name="search" id="search" placeholder="Search..." />
+  <div class="d-flex justify-center align-center">
+   <button type="submit" class="btn btn-dark-secondary btn-hover-dark" (click)="onSubmit($event)">Search</button>
+  </div>
+ </div>
+</div>

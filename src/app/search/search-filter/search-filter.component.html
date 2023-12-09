@@ -1,0 +1,31 @@
+<div *ngIf="searchFilters.length">
+    <ul>
+        <li class="d-flex-col" *ngFor="let filter of searchFilters; index as i">
+            <div class="row">
+                <input type="checkbox" [checked]="filter.checked" [(ngModel)]="triggerFiltersObj[i].checked"
+                       [name]="filter.categoryName" (ngModelChange)="changeAction({
+                       categoryName: filter.categoryName,
+                       checked: $event,
+                       })"
+                />
+                <h5>{{ filter.categoryName }}</h5>
+            </div>
+            <ul class="pl-1" *ngIf="filter.subCategories">
+                <li class="d-flex" *ngFor="let subc of filter.subCategories; index as j">
+                    <input type="checkbox" [checked]="subc.checked"
+                           [(ngModel)]="triggerFiltersObj[i].subCategories[j].checked"
+                           [name]="subc.categoryName"
+                           (ngModelChange)="changeAction({
+                        categoryName: filter.categoryName,
+                        checked: false,
+                        subCategory: {
+                            categoryName: subc.categoryName,
+                            checked: $event
+                        }
+                    })"/>
+                    <h5>{{ subc.categoryName }}</h5>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
