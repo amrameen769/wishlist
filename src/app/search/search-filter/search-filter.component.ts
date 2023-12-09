@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {filterStruct, SubCategory} from "../interface";
 import {FilterService} from "../filter/filter.service";
 
@@ -8,7 +8,6 @@ import {FilterService} from "../filter/filter.service";
  styleUrls: ['./search-filter.component.scss']
 })
 export class SearchFilterComponent implements OnInit {
-
 
  searchFilters: filterStruct[]
  triggeredFilters: filterStruct[]
@@ -23,8 +22,19 @@ export class SearchFilterComponent implements OnInit {
   })
  }
 
- changeAction(event: any) {
+ clearFilters() {
+  const clearedFilter = this.triggeredFilters.map((mainCat) => {
+   mainCat.checked = false
+   mainCat.partialChecked = false
+   mainCat.subCategories = mainCat.subCategories.map((subCat) => {
+    subCat.checked = false
+    return subCat
+   })
+   return mainCat
+  })
+ }
 
+ changeAction(event: any) {
   if (event.id === 'main') {
    let updateMainCategory = this.triggeredFilters.filter((triggerFilter: filterStruct) => triggerFilter.categoryName === event.categoryName)[0]
    const index = this.triggeredFilters.indexOf(updateMainCategory)

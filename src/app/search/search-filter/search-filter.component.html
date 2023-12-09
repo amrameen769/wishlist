@@ -1,4 +1,5 @@
 <div *ngIf="searchFilters.length">
+ <button class="btn btn-dark-primary" (click)="clearFilters()">Clear Filters</button>
     <ul>
         <li class="d-flex-col" *ngFor="let filter of searchFilters; index as i">
             <div class="row">

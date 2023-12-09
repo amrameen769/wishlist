@@ -10,6 +10,7 @@ export class FilterService {
  private filterSubject = new BehaviorSubject<filterStruct[]>(this.filters);
  currentData = this.filterSubject.asObservable()
 
+
  constructor() {
  }
 

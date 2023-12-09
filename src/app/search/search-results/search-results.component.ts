@@ -13,14 +13,15 @@ export class SearchResultsComponent implements OnInit {
  constructor(private searchHandler: SearchService, private filterHandler: FilterService) {
  }
 
- // testing purpose
- ngOnInit() {
-  this.getSearchResults('chron')
- }
 
  searchResults: any = []
  searchResultsMap: any = {}
  searchResultFilter: filterStruct[] = []
+
+ // testing purpose
+ ngOnInit() {
+  this.getSearchResults('chron')
+ }
 
  async getSearchResults(searchParam: string) {
   const res = await fetch("assets/mockdata/search-data.json")
