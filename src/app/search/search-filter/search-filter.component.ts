@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {filterStruct, filterTriggerEvent, SubCategory} from "../interface";
+import {Component, OnInit} from '@angular/core';
+import {filterStruct, SubCategory} from "../interface";
 import {FilterService} from "../filter/filter.service";
 
 @Component({
@@ -80,12 +80,10 @@ export class SearchFilterComponent implements OnInit {
  }
 
  checkIfNoneChecked(subCategories: SubCategory[]) {
-  return subCategories.every(subCat => subCat.checked === false)
+  return subCategories.every(subCat => subCat.checked)
  }
 
  checkIfSomeSelected(subCategories: SubCategory[]) {
-  return subCategories.every(subCat => subCat.checked === true)
+  return subCategories.every(subCat => !subCat.checked)
  }
-
-
 }
