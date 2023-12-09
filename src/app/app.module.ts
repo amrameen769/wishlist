@@ -7,11 +7,8 @@ import {EventService} from "src/shared/services/EventService";
 import {MarkdownModule} from 'ngx-markdown';
 import {CodeHighlighterComponent} from './code-highlighter/code-highlighter.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {WishModule} from './wish/wish.module';
-import {ContactModule} from './contact/contact.module';
 import {SharedModule} from './shared/shared.module';
 import {NavbarComponent} from './navbar/navbar.component';
-import {SearchModule} from "./search/search.module";
 import {RouterModule} from "@angular/router";
 import routes from "./app-routing.module";
 
