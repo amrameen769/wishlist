@@ -10,7 +10,6 @@ export class SearchService {
   const res = await fetch("assets/mockdata/search-data.json")
   const results = await res.json()
   const regex = new RegExp(searchParam, 'i')
-  const matchedResults = results.filter((result: any) => regex.test(result.title))
-  return matchedResults
+  return results.filter((result: any) => regex.test(result.title))
  }
 }
