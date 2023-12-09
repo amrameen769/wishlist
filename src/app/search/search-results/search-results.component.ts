@@ -18,9 +18,11 @@ export class SearchResultsComponent implements OnInit {
  searchResultsMap: any = {}
  searchResultFilter: filterStruct[] = []
  filteredResults: any = []
+ filteredResultMap: any = []
 
  // testing purpose
  ngOnInit() {
+  this.showSearchResults('d')
   this.filterHandler.currentData.subscribe((currentFilters) => {
    let currentFilterResults: filterStruct[] = []
    currentFilters.forEach((filter) => {
@@ -38,6 +40,7 @@ export class SearchResultsComponent implements OnInit {
     }
    })
    this.filteredResults = currentFilterResults.length > 0 ? currentFilterResults : this.searchResults
+   this.getCategorizedResults()
   })
  }
 
@@ -94,7 +97,23 @@ export class SearchResultsComponent implements OnInit {
   if (searchParam) {
    this.searchResults = await this.getSearchResults(searchParam)
    this.filterHandler.changeFilter(this.searchResultFilter);
+   this.getCategorizedResults();
   }
  }
 
+ getCategorizedResults() {
+  this.filteredResultMap = {}
+  this.filteredResults.forEach((fres: any) => {
+   if (this.filteredResultMap.hasOwnProperty(fres.category)) {
+    this.filteredResultMap[fres.category].push(fres)
+   } else {
+    this.filteredResultMap[fres.category] = []
+    this.filteredResultMap[fres.category].push(fres)
+   }
+  })
+ }
+
+ extractData(object: any){
+  return object.value
+ }
 }

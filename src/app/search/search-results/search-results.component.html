@@ -2,10 +2,17 @@
 <div class="d-flex container">
  <app-search-filter/>
  <div class="d-flex-column gap-1 pl-2">
-  <h3>Search Results ({{searchResults.length}})</h3>
-  <h4>Filtered Results ({{filteredResults.length}})</h4>
+  <h2>Search Results ({{searchResults.length}})</h2>
+  <h3>Filtered Results ({{filteredResults.length}})</h3>
   <ul class="d-flex-column gap-2">
-   <li class="card" *ngFor="let result of filteredResults">{{result.title}}</li>
+   <li *ngFor="let item of filteredResultMap | keyvalue">
+    <h4>{{ item.key }} ({{extractData(item).length}})</h4>
+    <ul class="d-flex-column mt-1">
+     <li class="card mt-1" *ngFor="let result of extractData(item)">
+      {{result.title}}
+     </li>
+    </ul>
+   </li>
   </ul>
  </div>
 </div>
