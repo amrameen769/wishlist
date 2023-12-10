@@ -19,7 +19,7 @@ export class SearchResultsComponent implements OnInit {
  searchResultsMap: any = {}
  searchResultFilter: filterStruct[] = []
  filteredResults: any = []
- filteredResultMap: any = []
+ filteredResultMap: any = {}
 
  totalPages: number
  currentPage: number
@@ -71,10 +71,9 @@ export class SearchResultsComponent implements OnInit {
   this.getCategorizedResults()
  }
 
- async getSearchResults(searchParam: string) {
-
-  const matchedResults = await this.searchHandler.getData(searchParam)
-
+ createResultFilterAndMap(matchedResults: any) {
+  this.searchResultFilter = []
+  this.searchResultsMap = {}
   matchedResults.forEach((mres: any) => {
    if (this.searchResultsMap.hasOwnProperty(mres.category)) {
     this.searchResultsMap[mres.category].push(mres)
@@ -89,7 +88,9 @@ export class SearchResultsComponent implements OnInit {
     this.searchResultsMap[mres.category].push(mres)
    }
   })
+ }
 
+ createResultFilterSubCategory() {
   let resultFilter: filterStruct[] = [...this.searchResultFilter]
 
   resultFilter.forEach((searchFilter: filterStruct, index) => {
@@ -112,9 +113,14 @@ export class SearchResultsComponent implements OnInit {
     })
    }
   })
+  console.log(this.searchResultFilter)
+  console.log(resultFilter)
+ }
 
-  this.searchResultFilter = resultFilter
-
+ async getSearchResults(searchParam: string) {
+  const matchedResults = await this.searchHandler.getData(searchParam)
+  this.createResultFilterAndMap(matchedResults)
+  this.createResultFilterSubCategory()
   return matchedResults
  }
 
